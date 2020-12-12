@@ -1,0 +1,75 @@
+---
+title: "Project 5"
+author: "Anthony Jayce Forgeron (B00738840)"
+date: "06/12/2020"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+Here is where we will collect the packages and load the libraries that we will use for plotting throughout the project (this part has been hidden to save space but does still run)
+```{r include = FALSE}
+install.packages("plotrix", repos = "https://cran.rstudio.com/bin/macosx/contrib/4.0/plotrix_3.7-8.tgz")
+library(plotrix)
+```
+
+Here we are going to be reading in all of the data that has been collected
+```{r}
+#reading in data from the year 2008 to 2010
+data1 = read.csv("project1.csv")
+#reading in data from the year 2007 to 2009
+data2 = read.csv("project2.csv")
+#reading in data from the year 2006 to 2008
+data3 = read.csv("project3.csv")
+```
+
+Now we will move on to creating plots comparing all data categories to each other so that we can get a better look at any potential relations in linearity
+```{r}
+plot(data1)
+plot(data2)
+plot(data3)
+```
+The common theme that can be observe from above is that there is a almost completely linear relation that is taking place between the X5 year net survival and age standardize year net survival (this is probably becuase just in general they are closely related in type and collection)
+
+Moving onto confidence interval observation we are going to be making multiple data tables plotting the various data with their confidence intervals shown in error bars
+```{r}
+#CI from 2008 to 2010 for X5
+plotCI(data1$X5.year.net.survival, ui = data1$High.95..confidence.interval..5.year.net.survival, li = data1$Low.95..confidence.interval..5.year.net.survival)
+#CI from 2008 to 2010 for age standardized
+plotCI(data1$Age.standardized.5.year.net.survival, ui = data1$High.95..confidence.interval..age.standardized.5.year.net.survival, li = data1$Low.95..confidence.interval..age.standardized.5.year.net.survival)
+#CI from 2007 to 2009 for X5
+plotCI(data2$X5.year.net.survival, ui = data2$High.95..confidence.interval..5.year.net.survival, li = data2$Low.95..confidence.interval..5.year.net.survival)
+#CI from 2007 to 2009 for age standardized
+plotCI(data2$Age.standardized.5.year.net.survival, ui = data2$High.95..confidence.interval..age.standardized.5.year.net.survival, li = data2$Low.95..confidence.interval..age.standardized.5.year.net.survival)
+#CI for 2006 to 2008 for X5
+plotCI(data3$X5.year.net.survival, ui = data3$High.95..confidence.interval..5.year.net.survival, li = data3$Low.95..confidence.interval..5.year.net.survival)
+#CI for 2006 to 2008 for age standardized
+plotCI(data3$Age.standardized.5.year.net.survival, ui = data3$High.95..confidence.interval..age.standardized.5.year.net.survival, li = data3$Low.95..confidence.interval..age.standardized.5.year.net.survival)
+```
+One obvious trend that can be observed would be that when we move from the X5 category over to the age standardized category we can see the confidence intervals becoming widers (this is valid for all datasets)
+
+What we are going to take a look at now is some linear models that we should be taking into consideration based off the plots that were made in the beginning 
+```{r}
+lm1 = lm(data1$Number.of.eligible.cases~data1$X5.year.net.survival+data1$Age.standardized.5.year.net.survival+data1$X5.year.net.survival*data1$Age.standardized.5.year.net.survival)
+lm2 = lm(data2$Number.of.eligible.cases~data2$X5.year.net.survival+data2$Age.standardized.5.year.net.survival+data2$X5.year.net.survival*data2$Age.standardized.5.year.net.survival)
+lm3 = lm(data3$Number.of.eligible.cases~data3$X5.year.net.survival+data3$Age.standardized.5.year.net.survival+data3$X5.year.net.survival*data3$Age.standardized.5.year.net.survival)
+first = summary(lm1)
+first
+second = summary(lm2)
+second
+third = summary(lm3)
+third
+```
+the models cannot be adjusted anymore than how they already are since there is no implication that we need to perform a backwarde elimination with an critical value of 0.05
+
+Now we will perform an overall AnovA across all of the different years for the data
+```{r}
+one = anova(lm1)
+one
+two = anova(lm2)
+two
+three = anova(lm3)
+three
+```
