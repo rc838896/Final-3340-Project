@@ -15,7 +15,7 @@ _No extra data point was added because we forgot and did not fully understand wh
 3. 95% confidence interval plots were created for each dataset. <br/>
 4. Lastly, the linear models for each dataset were created.
 ## Results
-_Since the plots will not insert properly they will be referenced to the Project5 file_ <br/>
+_Since the plots will not insert properly they will be referenced to the Project5.docx file_ <br/>
 Figures 1 a-c indicates a near linear relationship between the five-year net survival and age standardized year net survival.<br/>
 Figures 2 a-b indicates that all regions have approximately 17 cases that will survive the 5 year survival rate from the 2008-2010 data. <br/>
 Figures 3 a-b indicates that all regions have approximately 17 cases that will survive the 5 year survival rate from the 2007-2009 data, but the confidence interv als are not as closely distributed as the 2008-2010 data. <br/>
