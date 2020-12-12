@@ -17,7 +17,9 @@ _No extra data point was added because we forgot and did not fully understand wh
 ## Results
 _Since the plots will not insert properly they will be referenced to the Project5 file_ <br/>
 Figures 1 a-c indicates a near linear relationship between the five-year net survival and age standardized year net survival.<br/>
-Figure 2 a-c indicates that all regions have approximately 17 cases that will survive the 5 year survival rate.
+Figures 2 a-b indicates that all regions have approximately 17 cases that will survive the 5 year survival rate from the 2008-2010 data. <br/>
+Figures 3 a-b indicates that all regions have approximately 17 cases that will survive the 5 year survival rate from the 2007-2009 data, but the confidence interv als are not as closely distributed as the 2008-2010 data. <br/>
+Figures 4 a-b indicates that all regions have a skewed number cases that will survive the 5 year survival rate from the 2006-2008 data. 
 ## Conclusion
 To discover the relation between age-standardized and all-ages five-year net survival estimates for lung and bronchus cancer, a regression analysis was performed on each data set from 2006-2010. Plots of interaction and confidence intervals were created to visually demonstrate the relationships between variables. From the data that was collected in this project, it was visualized that there was very little correlation between variables. Although it was observed that there were linear tendencies in age-standardized and all-ages five-year net survival estimate variables. 
 ## Appendix
